@@ -87,7 +87,7 @@ The script creates several visualization files:
 #### Change the train/test split ratio:
 
 ```python
-# In adult_analysis.py, line ~105
+# In adult_analysis.py, in the preprocess_data() function, modify:
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3,  # Changed from 0.2 to 0.3 (30% test set)
     random_state=42, stratify=y
@@ -226,7 +226,12 @@ print(f"Selected features: {selected_features}")
 
 ### Handling Class Imbalance
 
-Use SMOTE to balance classes:
+Use SMOTE to balance classes (requires imbalanced-learn package):
+
+```bash
+# First install the required package
+pip install imbalanced-learn
+```
 
 ```python
 from imblearn.over_sampling import SMOTE
